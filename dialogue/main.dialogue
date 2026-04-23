@@ -1,0 +1,40 @@
+~ start
+if global.blocking == true
+	Caterpeeper: Can I get past you?
+	
+	Toed: I don't want to move...
+	
+if global.hat_status == "has":
+	Caterpeeper: What if I gave you this neat hat?
+		
+	Toed: ... that is a neat hat
+	- Give to Toed
+		set global.hat_status = "gave"
+		set global.blocking = false
+		Caterpeeper: Here...
+			
+		Toed: hm...
+	- Keep it
+		Caterpeeper: I think I'd rather keep it.
+			
+		Toed: (disappointed) oh.
+
+elif global.hat_status == "gave":
+	Toed: I like it...
+		
+	Caterpeeper: It suits you
+else:
+	Caterpeeper: Please?
+	
+	Toed: *sigh*
+	
+	Caterpeeper: Fine. I'll be back.
+
+=> END
+
+~ hat
+
+Caterpeeper: huh. This is a neet hat.
+set global.hat_status = "has"
+
+=> END

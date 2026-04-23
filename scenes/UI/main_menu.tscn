@@ -1,0 +1,199 @@
+[gd_scene load_steps=9 format=3 uid="uid://brmsb6ka6ft7u"]
+
+[ext_resource type="Theme" uid="uid://dhv0u2dvxqoqp" path="res://assets/themes/menu_button.tres" id="1_5jstl"]
+[ext_resource type="Script" uid="uid://cc8m3dliincqi" path="res://scripts/main_menu.gd" id="1_tfcbk"]
+[ext_resource type="Texture2D" uid="uid://bdbovy5ukhcok" path="res://assets/graphics/UI/backPanel.png" id="2_tfcbk"]
+[ext_resource type="FontFile" uid="uid://bvnpilfqedvaw" path="res://assets/fonts/8bitlim.ttf" id="3_e2p27"]
+[ext_resource type="FontFile" uid="uid://dund06bj03gjs" path="res://assets/fonts/aesymatt.ttf" id="5_bm8t2"]
+[ext_resource type="AudioStream" uid="uid://dfgqtqam6bcst" path="res://assets/audio/inkBlack.mp3" id="5_e2p27"]
+[ext_resource type="Script" uid="uid://bf8re0ethkpfm" path="res://scripts/audio_control.gd" id="5_ngj32"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngj32"]
+texture = ExtResource("2_tfcbk")
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfcbk")
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12586805
+anchor_right = 0.8949653
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme = ExtResource("1_5jstl")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ngj32")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = 94.0
+offset_right = 217.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme = ExtResource("1_5jstl")
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Resume" type="Button" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume
+"
+
+[node name="Options" type="Button" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options
+"
+
+[node name="Label" type="Label" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.23200001
+anchor_right = 0.5
+anchor_bottom = 0.23200001
+offset_left = -401.0
+offset_top = -37.336
+offset_right = 402.0
+offset_bottom = 84.664
+grow_horizontal = 2
+theme = ExtResource("1_5jstl")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.2, 0.050980393, 0.023529412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4)
+theme_override_constants/line_spacing = 4
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_e2p27")
+text = "INKBOUND OBSIDIAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 145.0
+offset_right = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5jstl")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ngj32")
+
+[node name="Label" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.23200001
+anchor_right = 0.5
+anchor_bottom = 0.23200001
+offset_left = -401.0
+offset_top = -81.336
+offset_right = 402.0
+offset_bottom = 40.664
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2, 0.050980393, 0.023529412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4)
+theme_override_constants/line_spacing = 4
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_e2p27")
+theme_override_font_sizes/font_size = 100
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.23200001
+anchor_right = 0.5
+anchor_bottom = 0.23200001
+offset_left = -216.0
+offset_top = 255.664
+offset_right = 217.0
+offset_bottom = 342.664
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2, 0.050980393, 0.023529412, 1)
+theme_override_constants/line_spacing = 4
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("5_bm8t2")
+theme_override_font_sizes/font_size = 46
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
+texture_filter = 1
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 187.0
+offset_right = 217.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5jstl")
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Back" type="Button" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Audio Control" type="HSlider" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.771
+anchor_right = 0.50100005
+anchor_bottom = 0.77400005
+offset_left = -227.11401
+offset_top = -21.608032
+offset_right = 229.11395
+offset_bottom = 19.447968
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 5.0
+step = 0.1
+value = 1.0
+script = ExtResource("5_ngj32")
+audio_bus_name = "Music"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_e2p27")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="MainPanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MainPanel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="OptionsPanel/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="OptionsPanel/Audio Control" to="OptionsPanel/Audio Control" method="_on_value_changed"]

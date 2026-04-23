@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca42y634ob06p"]
+
+[ext_resource type="Script" uid="uid://f1wxni2but2g" path="res://scripts/game_controller.gd" id="1_ts4rt"]
+[ext_resource type="PackedScene" uid="uid://dmvo0t2xd3uff" path="res://scenes/maps/catacomb1.tscn" id="2_rc0pn"]
+[ext_resource type="PackedScene" uid="uid://brmsb6ka6ft7u" path="res://scenes/UI/main_menu.tscn" id="3_h843c"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_ts4rt")
+
+[node name="MapContainer" type="Node2D" parent="."]
+
+[node name="Catacomb1" parent="MapContainer" instance=ExtResource("2_rc0pn")]
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="Main Menu" parent="MenuCanvas" instance=ExtResource("3_h843c")]
