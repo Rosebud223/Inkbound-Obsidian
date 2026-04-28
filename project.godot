@@ -21,7 +21,7 @@ buses/default_bus_layout="res://assets/themes/default_bus_layout.tres"
 
 [autoload]
 
-global="*res://scripts/global.gd"
+global="*res://scripts/general/global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
@@ -30,9 +30,14 @@ runtime/balloon_path="res://dialogue/balloon.tscn"
 
 [display]
 
+window/size/borderless=true
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [editor_plugins]
 

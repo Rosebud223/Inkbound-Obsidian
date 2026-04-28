@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://brmsb6ka6ft7u"]
 
 [ext_resource type="Theme" uid="uid://dhv0u2dvxqoqp" path="res://assets/themes/menu_button.tres" id="1_5jstl"]
-[ext_resource type="Script" uid="uid://cc8m3dliincqi" path="res://scripts/main_menu.gd" id="1_tfcbk"]
+[ext_resource type="Script" uid="uid://cc8m3dliincqi" path="res://scripts/scene function/main_menu.gd" id="1_tfcbk"]
 [ext_resource type="Texture2D" uid="uid://bdbovy5ukhcok" path="res://assets/graphics/UI/backPanel.png" id="2_tfcbk"]
 [ext_resource type="FontFile" uid="uid://bvnpilfqedvaw" path="res://assets/fonts/8bitlim.ttf" id="3_e2p27"]
 [ext_resource type="FontFile" uid="uid://dund06bj03gjs" path="res://assets/fonts/aesymatt.ttf" id="5_bm8t2"]
 [ext_resource type="AudioStream" uid="uid://dfgqtqam6bcst" path="res://assets/audio/inkBlack.mp3" id="5_e2p27"]
-[ext_resource type="Script" uid="uid://bf8re0ethkpfm" path="res://scripts/audio_control.gd" id="5_ngj32"]
+[ext_resource type="Script" uid="uid://bf8re0ethkpfm" path="res://scripts/scene function/audio_control.gd" id="5_ngj32"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngj32"]
 texture = ExtResource("2_tfcbk")
@@ -89,7 +89,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionsPanel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

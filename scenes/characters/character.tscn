@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://5oltpfelja7c"]
 
-[ext_resource type="Script" uid="uid://dl3tlexu2i0u0" path="res://scripts/character.gd" id="1_bdb3r"]
-[ext_resource type="Texture2D" uid="uid://dfyovkddraugx" path="res://assets/graphics/characters/caterpeeper_sheet-sheet.png" id="2_bdb3r"]
+[ext_resource type="Script" uid="uid://dl3tlexu2i0u0" path="res://scripts/creatures/character.gd" id="1_bdb3r"]
+[ext_resource type="Texture2D" uid="uid://dfyovkddraugx" path="res://assets/graphics/characters/caterpeeper_sheet.png" id="2_bdb3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yu0b"]
 atlas = ExtResource("2_bdb3r")

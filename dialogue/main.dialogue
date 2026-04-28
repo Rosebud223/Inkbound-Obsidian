@@ -1,40 +1,60 @@
 ~ start
 if global.blocking == true
 	Caterpeeper: Can I get past you?
-	
 	Toed: I don't want to move...
-	
-if global.hat_status == "has":
 	Caterpeeper: What if I gave you this neat hat?
-		
 	Toed: ... that is a neat hat
 	- Give to Toed
 		set global.hat_status = "gave"
-		set global.blocking = false
 		Caterpeeper: Here...
-			
 		Toed: hm...
+		set global.blocking = false
 	- Keep it
 		Caterpeeper: I think I'd rather keep it.
-			
 		Toed: (disappointed) oh.
-
 elif global.hat_status == "gave":
 	Toed: I like it...
-		
 	Caterpeeper: It suits you
 else:
 	Caterpeeper: Please?
-	
 	Toed: *sigh*
-	
 	Caterpeeper: Fine. I'll be back.
-
 => END
 
+
 ~ hat
-
-Caterpeeper: huh. This is a neet hat.
+Caterpeeper: huh. This is a neat hat.
 set global.hat_status = "has"
+=> END
 
+~ corrat
+Rat: Oh hello, friend! 
+Caterpeeper: Um. Hi. Yeah. Can you answer a few questions?
+Rat: But of course! What would you like to know?
+- Where am I?
+	Rat: You're in the catacombs! This is the place where the most destitute are left to dwell.
+	Rat: You must have fallen quite far to end up here.
+	Caterpeeper: I would rather not be here.
+	set global.talked_about_catacombs = true
+- What's wrong with you?
+	Rat: Wrong? Theres nothing *wrong* with me.
+	Rat: I have been blessed with friends who will never leave me
+	Rat: They embrace me from within and without.
+	Rat: I can blesss you as well, if you wish. Then you'll never be alone either.
+	Caterpeeper: oh, ew. No thank you. 
+- How do I get out? [if global.talked_about_catacombs == true]
+	Rat: There's a key to the ... hm... 
+	Rat: Well, there's a key in the largest room from here.
+	Rat: You can use that to unlock the gate straight down the hall.
+	Rat: You just have to swim over that little stream to get there.
+	Caterpeeper: I can't swim...
+	Rat: I guess you'll have to find another way around.
+	set global.talked_about_escape = true
+- Do you have any idea how to get around the water? [if global.talked_about_escape == true]
+	Rat: I think there's a room deeper in this section of the tunnels that has a hole in the wall
+	Rat: You may be small enough to squeeze through.
+	Caterpeeper: Thank you.
+	Rat: Would you like to show your gratitude with a hug? C:
+	Caterpeeper: oh, gross. No.
+	Rat: Your loss.
 => END
