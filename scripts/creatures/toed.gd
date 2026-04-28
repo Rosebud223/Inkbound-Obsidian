@@ -4,12 +4,11 @@ extends CharacterBody2D
 @export var target_position: Vector2
 
 func _process(_delta):
-	if global.hat_status == "gave":
+	if global.has_item("given_hat"):
 		if $AnimatedSprite2D.animation != "special":
 			$AnimatedSprite2D.play("special")
 	else:
-		if $AnimatedSprite2D.animation != "idle":
-			$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("idle")
 
 	if global.blocking == false:
 		move_aside()

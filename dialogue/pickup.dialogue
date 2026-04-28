@@ -1,0 +1,9 @@
+~ hat
+Caterpeeper: what a nice hat
+do global.collect_item("hat")
+=> END
+
+~ key
+Caterpeeper: Oh look, a key!
+do global.collect_item("key")
+=> END

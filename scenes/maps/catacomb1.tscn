@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dmvo0t2xd3uff"]
+[gd_scene load_steps=23 format=4 uid="uid://dmvo0t2xd3uff"]
 
 [ext_resource type="Script" uid="uid://bmeelqnfyw8uu" path="res://scripts/scene function/world.gd" id="1_xycay"]
 [ext_resource type="Texture2D" uid="uid://dsvn6lwutc5pv" path="res://assets/graphics/tilesets/cryptTileMap.png" id="2_pqxxd"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://5oltpfelja7c" path="res://scenes/characters/character.tscn" id="5_qpp23"]
 [ext_resource type="Resource" uid="uid://n7xae5gu3q62" path="res://dialogue/main.dialogue" id="6_jfvtu"]
 [ext_resource type="PackedScene" uid="uid://dwh3gmtajb3i7" path="res://scenes/characters/Inkbound/corrat.tscn" id="9_qpp23"]
+[ext_resource type="PackedScene" uid="uid://xxmgub7kwb5" path="res://scenes/objects/pickup_key.tscn" id="10_ja8qr"]
+[ext_resource type="Resource" uid="uid://mrhyufl34fiw" path="res://dialogue/pickup.dialogue" id="11_nkrtv"]
+[ext_resource type="PackedScene" uid="uid://cx4q2rxvepqjc" path="res://scenes/objects/pickup_hat.tscn" id="12_nkrtv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bisc4"]
 texture = ExtResource("2_pqxxd")
@@ -258,6 +261,9 @@ sources/0 = SubResource("TileSetAtlasSource_bisc4")
 sources/1 = SubResource("TileSetAtlasSource_bjata")
 sources/2 = SubResource("TileSetAtlasSource_1fy8a")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkrtv"]
+size = Vector2(76, 73)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpp23"]
 radius = 30.909058
 
@@ -266,6 +272,12 @@ size = Vector2(64, 52)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1fy8a"]
 radius = 48.362057
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5yld"]
+radius = 27.073973
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkrtv"]
+radius = 24.020824
 
 [node name="Catacomb1" type="Node2D"]
 y_sort_enabled = true
@@ -304,6 +316,14 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAACAB4AAAAAAAQAAAACAB0AAAAAAAMAAAADAB4AAAADAAQAAAADAB0AAAADAAMAAAA=")
 tile_set = SubResource("TileSet_4mrxx")
 
+[node name="ActionableComponent" parent="Map/ExitDoor" instance=ExtResource("5_pm8m0")]
+dialogue_resource = ExtResource("6_jfvtu")
+dialogue_start = "exit_door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/ExitDoor/ActionableComponent"]
+position = Vector2(96, 955.5)
+shape = SubResource("RectangleShape2D_nkrtv")
+
 [node name="Creature" parent="Map" instance=ExtResource("4_jfvtu")]
 y_sort_enabled = true
 position = Vector2(670, 480)
@@ -311,6 +331,7 @@ scale = Vector2(1.1, 1.1)
 target_position = Vector2(850, 500)
 
 [node name="Actionable" parent="Map/Creature" instance=ExtResource("5_pm8m0")]
+position = Vector2(-4.545471, 3.636383)
 dialogue_resource = ExtResource("6_jfvtu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Creature/Actionable"]
@@ -350,5 +371,28 @@ dialogue_start = "corrat"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corrat/ActionableComponent"]
 position = Vector2(3.3333333, -13.333333)
 shape = SubResource("CircleShape2D_1fy8a")
+
+[node name="Pickup_Key" parent="." instance=ExtResource("10_ja8qr")]
+position = Vector2(706, 184)
+item_id = "key"
+
+[node name="ActionableComponent" parent="Pickup_Key" instance=ExtResource("5_pm8m0")]
+dialogue_resource = ExtResource("11_nkrtv")
+dialogue_start = "key"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup_Key/ActionableComponent"]
+shape = SubResource("CircleShape2D_n5yld")
+
+[node name="Hat" parent="." instance=ExtResource("12_nkrtv")]
+position = Vector2(90, 653)
+item_id = "hat"
+
+[node name="ActionableComponent" parent="Hat" instance=ExtResource("5_pm8m0")]
+dialogue_resource = ExtResource("11_nkrtv")
+dialogue_start = "hat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hat/ActionableComponent"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_nkrtv")
 
 [connection signal="body_entered" from="catacomb2Transition" to="." method="_on_catacomb_2_transition_body_entered"]

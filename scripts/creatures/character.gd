@@ -5,6 +5,7 @@ var current_dir = "down"
 var blinking = false
 
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
+var current_actionable: Area2D = null
 
 func _physics_process(delta):
 	if blinking:
@@ -13,6 +14,7 @@ func _physics_process(delta):
 		return
 		
 	player_movement(delta)
+	update_actionable_highlight()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -21,6 +23,23 @@ func _unhandled_input(event: InputEvent) -> void:
 			actionables[0].action()
 			start_special()
 			return
+func update_actionable_highlight() -> void:
+	var actionables = actionable_finder.get_overlapping_areas()
+	var new_actionable: Area2D = null
+	
+	if actionables.size() > 0:
+		new_actionable = actionables[0]
+	
+	if current_actionable == new_actionable:
+		return
+	
+	if current_actionable != null and current_actionable.has_method("set_highlight"):
+		current_actionable.set_highlight(false)
+	
+	current_actionable = new_actionable
+	
+	if current_actionable != null and current_actionable.has_method("set_highlight"):
+		current_actionable.set_highlight(true)
 
 func character():
 	pass

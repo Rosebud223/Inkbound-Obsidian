@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://dwh3gmtajb3i7"]
 
 [ext_resource type="Texture2D" uid="uid://dlfs3648nn8qw" path="res://assets/graphics/characters/corrat_sheet.png" id="1_sn7qk"]
-[ext_resource type="Script" uid="uid://djo8llbqoslqk" path="res://scenes/characters/Inkbound/corrat.gd" id="1_ylhf8"]
+[ext_resource type="Script" uid="uid://djo8llbqoslqk" path="res://scripts/creatures/corrat.gd" id="1_ylhf8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylhf8"]
 atlas = ExtResource("1_sn7qk")

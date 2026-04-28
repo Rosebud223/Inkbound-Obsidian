@@ -1,30 +1,27 @@
 ~ start
-if global.blocking == true
-	Caterpeeper: Can I get past you?
-	Toed: I don't want to move...
-	Caterpeeper: What if I gave you this neat hat?
-	Toed: ... that is a neat hat
-	- Give to Toed
-		set global.hat_status = "gave"
-		Caterpeeper: Here...
-		Toed: hm...
-		set global.blocking = false
-	- Keep it
-		Caterpeeper: I think I'd rather keep it.
-		Toed: (disappointed) oh.
-elif global.hat_status == "gave":
+if global.has_item("given_hat"):
 	Toed: I like it...
 	Caterpeeper: It suits you
-else:
-	Caterpeeper: Please?
-	Toed: *sigh*
-	Caterpeeper: Fine. I'll be back.
-=> END
+if global.blocking == true:
+	Caterpeeper: Can I get past you?
+	Toed: I don't want to move...
+	if global.has_item("hat"):
+		Caterpeeper: What if I gave you this neat hat?
+		Toed: ... that is a neat hat
+		- Give to Toed
+			do global.collect_item("given_hat")
+			do global.remove_item("hat")
+			Caterpeeper: Here...
+			Toed: hm...
+			set global.blocking = false
+		- Keep it
+			Caterpeeper: I think I'd rather keep it.
+			Toed: (disappointed) oh.
+	else:
+		Caterpeeper: Please?
+		Toed: *sigh*
+		Caterpeeper: Fine. I'll be back.
 
-
-~ hat
-Caterpeeper: huh. This is a neat hat.
-set global.hat_status = "has"
 => END
 
 ~ corrat
@@ -57,4 +54,15 @@ Rat: But of course! What would you like to know?
 	Rat: Would you like to show your gratitude with a hug? C:
 	Caterpeeper: oh, gross. No.
 	Rat: Your loss.
+=> END
+
+~ exit_door
+if global.has_item("key"):
+	Caterpeeper: I think this key fits in the door
+	do global.remove_item("key")
+	set global.open_door = true
+	set global.blocking = true
+	do global.remove_item("given_hat")
+else: 
+	Caterpeeper: its locked 
 => END

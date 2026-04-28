@@ -517,7 +517,6 @@ tile_set = SubResource("TileSet_flxpb")
 
 [node name="Creature" parent="." instance=ExtResource("3_vfeu1")]
 position = Vector2(637, 547)
-target_position = null
 
 [node name="Character" parent="." instance=ExtResource("4_ciu8f")]
 y_sort_enabled = true
