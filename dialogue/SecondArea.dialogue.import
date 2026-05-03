@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dy4eu6s8nsibm"
+path="res://.godot/imported/SecondArea.dialogue-2ef9af31ba272e413333933dad2ff5d4.tres"
+
+[deps]
+
+source_file="res://dialogue/SecondArea.dialogue"
+dest_files=["res://.godot/imported/SecondArea.dialogue-2ef9af31ba272e413333933dad2ff5d4.tres"]
+
+[params]
+
+defaults=true

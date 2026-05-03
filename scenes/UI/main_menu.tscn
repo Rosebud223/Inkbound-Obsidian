@@ -191,6 +191,8 @@ audio_bus_name = "Music"
 stream = ExtResource("5_e2p27")
 autoplay = true
 bus = &"Music"
+playback_type = 1
+parameters/looping = true
 
 [connection signal="pressed" from="MainPanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MainPanel/VBoxContainer/Options" to="." method="_on_options_pressed"]

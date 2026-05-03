@@ -50,7 +50,7 @@ UI: (main_menu.tscn)
 Dialogue: 
 	Made from an addon for dialogue
 	- contains balloon.gd that is an automatically generated script
-	- main.dialogue handles all the actuall dialogues
+	- main.dialogue handles all the actual dialogues
 	- balloon.tscn is the mildly customized style for dialogue bubbles. Handled by ballon.gd
 
 

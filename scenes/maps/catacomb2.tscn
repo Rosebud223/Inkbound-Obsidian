@@ -1,9 +1,20 @@
-[gd_scene load_steps=11 format=4 uid="uid://bcp1tpy8w1b7c"]
+[gd_scene load_steps=38 format=4 uid="uid://bcp1tpy8w1b7c"]
 
 [ext_resource type="Texture2D" uid="uid://dsvn6lwutc5pv" path="res://assets/graphics/tilesets/cryptTileMap.png" id="1_b7aqc"]
 [ext_resource type="Texture2D" uid="uid://bfs2nohe1eqxx" path="res://assets/graphics/props/props.png" id="2_0nycp"]
+[ext_resource type="PackedScene" uid="uid://cx4q2rxvepqjc" path="res://scenes/objects/pickup_hat.tscn" id="3_b0f7u"]
 [ext_resource type="PackedScene" uid="uid://dmxrbifjqujtp" path="res://scenes/characters/Inkbound/toed.tscn" id="3_vfeu1"]
 [ext_resource type="PackedScene" uid="uid://5oltpfelja7c" path="res://scenes/characters/character.tscn" id="4_ciu8f"]
+[ext_resource type="PackedScene" uid="uid://dw6b11bmyr380" path="res://scenes/helpers/actionable.tscn" id="4_jaqte"]
+[ext_resource type="PackedScene" uid="uid://xxmgub7kwb5" path="res://scenes/objects/pickup_key.tscn" id="4_pbjbu"]
+[ext_resource type="Resource" uid="uid://dy4eu6s8nsibm" path="res://dialogue/SecondArea.dialogue" id="5_1j4qq"]
+[ext_resource type="PackedScene" uid="uid://dwh3gmtajb3i7" path="res://scenes/characters/Inkbound/corrat.tscn" id="6_1j4qq"]
+[ext_resource type="Texture2D" uid="uid://b2672k0nj4fp2" path="res://assets/graphics/characters/Oakley(TheBirchStick).png" id="7_eh6wn"]
+[ext_resource type="Texture2D" uid="uid://btktqyqwf1ehj" path="res://assets/graphics/characters/Shadow_Gma.png" id="8_b0f7u"]
+[ext_resource type="Texture2D" uid="uid://srjpn7i2mpni" path="res://assets/graphics/characters/gloob.png" id="9_pbjbu"]
+[ext_resource type="Texture2D" uid="uid://cxdyq6ljtuky8" path="res://assets/graphics/characters/Enemy_GarterSnake_Idle.png" id="10_vrjp6"]
+[ext_resource type="Script" uid="uid://djo8llbqoslqk" path="res://scripts/creatures/corrat.gd" id="11_a6pr0"]
+[ext_resource type="Texture2D" uid="uid://cckmgu832g7r" path="res://assets/graphics/characters/bullseye.png" id="12_qe4sh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3nsei"]
 texture = ExtResource("1_b7aqc")
@@ -485,6 +496,92 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sr8it")
 sources/1 = SubResource("TileSetAtlasSource_wmluu")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c71wt"]
+radius = 35.014282
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_guett"]
+radius = 41.700066
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iw5ci"]
+radius = 36.0
+height = 196.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q5fuj"]
+radius = 36.013885
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghov2"]
+radius = 49.09175
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmfpx"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq3dw"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imm0p"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjrtv"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3o3b"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc21i"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wubt"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykdoi"]
+atlas = ExtResource("10_vrjp6")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6yh41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmfpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq3dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imm0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjrtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3o3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc21i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wubt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykdoi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvh7u"]
+radius = 39.051247
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdisc"]
+radius = 58.21512
+
 [node name="Catacomb2" type="Node2D"]
 y_sort_enabled = true
 
@@ -512,11 +609,25 @@ tile_set = SubResource("TileSet_ex1ps")
 [node name="Catacomb_Ysort" type="TileMapLayer" parent="Map"]
 z_as_relative = false
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAOAAMAAAAGAAQAAAAeAAgAAAAGAAQAAAAnAAgAAAAGAAQAAAAkABEAAAAGAAQAAAAnABIAAAAGAAQAAAAiABgAAAAGAAQAAAApABgAAAAGAAQAAAAfAB8AAAAGAAQAAAAMAB4AAAAGAAQAAAALABkAAAAGAAQAAAAFABwAAAAGAAQAAAACAB4AAAAGAAQAAAAIACAAAAAGAAQAAAAQAAoAAAAGAAQAAAASAAgAAAAGAAQAAAATAAoAAAAGAAQAAAAVABEAAAAGAAQAAAAUABIAAAAGAAQAAAAbABEAAAAGAAQAAAAgABIAAAAGAAQAAAAaAAsAAAAGAAQAAAAaAAMAAAAGAAQAAAArAAMAAAAGAAQAAAArABEAAAAGAAQAAAACAAsAAAAGAAQAAAAOABoAAAAGAAQAAAAKABEAAAAGAAQAAAAJAAwAAAAGAAQAAAAEAAMAAAAGAAQAAAAJAAYAAAAGAAQAAAA=")
+tile_map_data = PackedByteArray("AAAOAAMAAAAGAAQAAAAeAAgAAAAGAAQAAAAnAAgAAAAGAAQAAAAkABEAAAAGAAQAAAAnABIAAAAGAAQAAAAiABgAAAAGAAQAAAApABgAAAAGAAQAAAAfAB8AAAAGAAQAAAAMAB4AAAAGAAQAAAALABkAAAAGAAQAAAAFABwAAAAGAAQAAAACAB4AAAAGAAQAAAAIACAAAAAGAAQAAAAQAAoAAAAGAAQAAAASAAgAAAAGAAQAAAATAAoAAAAGAAQAAAAVABEAAAAGAAQAAAAUABIAAAAGAAQAAAAbABEAAAAGAAQAAAAgABIAAAAGAAQAAAAaAAsAAAAGAAQAAAAaAAMAAAAGAAQAAAArAAMAAAAGAAQAAAArABEAAAAGAAQAAAACAAsAAAAGAAQAAAAOABoAAAAGAAQAAAAKABEAAAAGAAQAAAAJAAwAAAAGAAQAAAAEAAMAAAAGAAQAAAAJAAYAAAAGAAQAAAANAB0AAQAEAAAAAAAOAB0AAQAFAAAAAAAPAB0AAQAGAAAAAAAQAB0AAQAHAAAAAAARAB0AAQAIAAAAAAAaAA8AAQAIAAAAAAAcABEAAQAJAAEAAAAZABIAAQAIAAEAAAAoAAwAAQAIAAEAAAAkAAkAAQAJAAEAAAAVAB0AAQAJAAAAAAAWAB0AAQAAAAEAAAAXAB0AAQABAAEAAAAZAB0AAQADAAEAAAAYAB0AAQACAAEAAAAZABwAAQAFAAEAAAAYABwAAQAEAAEAAAAXABwAAQAGAAEAAAAUAB4AAQAHAAEAAAAWABwAAQABAAAAAAAVABwAAQAAAAAAAAAGAAQAAQAAAAAAAAANAAMAAQAHAAAAAAAUAAoAAQAEAAAAAAAVAAwAAQADAAAAAAATAAsAAQACAAAAAAAIABEAAQAJAAAAAAARABgAAQAFAAAAAAASABgAAQACAAAAAAA=")
 tile_set = SubResource("TileSet_flxpb")
+
+[node name="Hat" parent="Map" instance=ExtResource("3_b0f7u")]
+position = Vector2(557, 1007)
+
+[node name="Pickup_Key" parent="Map" instance=ExtResource("4_pbjbu")]
+position = Vector2(1105, 952)
 
 [node name="Creature" parent="." instance=ExtResource("3_vfeu1")]
 position = Vector2(637, 547)
+
+[node name="ActionableComponent" parent="Creature" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "Toed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Creature/ActionableComponent"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_c71wt")
 
 [node name="Character" parent="." instance=ExtResource("4_ciu8f")]
 y_sort_enabled = true
@@ -532,3 +643,78 @@ limit_right = 1440
 limit_bottom = 1119
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Corrat" parent="." instance=ExtResource("6_1j4qq")]
+position = Vector2(802, 555)
+scale = Vector2(0.6, 0.6)
+
+[node name="ActionableComponent" parent="Corrat" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "Rat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corrat/ActionableComponent"]
+position = Vector2(3.3333333, -16.666666)
+shape = SubResource("CircleShape2D_guett")
+
+[node name="Oakley(theBirchStick)" type="Sprite2D" parent="."]
+position = Vector2(805, 311)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_eh6wn")
+
+[node name="ActionableComponent" parent="Oakley(theBirchStick)" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "Stick"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oakley(theBirchStick)/ActionableComponent"]
+position = Vector2(-6, -4)
+shape = SubResource("CapsuleShape2D_iw5ci")
+
+[node name="ShadowGma" type="Sprite2D" parent="."]
+position = Vector2(1075, 552)
+texture = ExtResource("8_b0f7u")
+
+[node name="ActionableComponent" parent="ShadowGma" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "Shadow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowGma/ActionableComponent"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_q5fuj")
+
+[node name="Gloob" type="Sprite2D" parent="."]
+position = Vector2(1232, 344)
+texture = ExtResource("9_pbjbu")
+
+[node name="ActionableComponent" parent="Gloob" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "Gloob"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gloob/ActionableComponent"]
+position = Vector2(-4, 3)
+shape = SubResource("CircleShape2D_ghov2")
+
+[node name="Just a snake" type="AnimatedSprite2D" parent="."]
+position = Vector2(1205, 599)
+sprite_frames = SubResource("SpriteFrames_6yh41")
+animation = &"idle"
+script = ExtResource("11_a6pr0")
+
+[node name="ActionableComponent" parent="Just a snake" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "Snake"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Just a snake/ActionableComponent"]
+position = Vector2(-4, 5)
+shape = SubResource("CircleShape2D_mvh7u")
+
+[node name="Bullseye" type="Sprite2D" parent="."]
+position = Vector2(1042, 327)
+texture = ExtResource("12_qe4sh")
+
+[node name="ActionableComponent" parent="Bullseye" instance=ExtResource("4_jaqte")]
+dialogue_resource = ExtResource("5_1j4qq")
+dialogue_start = "BullsEye"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullseye/ActionableComponent"]
+position = Vector2(4, 3)
+shape = SubResource("CircleShape2D_xdisc")

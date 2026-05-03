@@ -26,7 +26,7 @@ if global.blocking == true:
 
 ~ corrat
 Rat: Oh hello, friend! 
-Caterpeeper: Um. Hi. Yeah. Can you answer a few questions?
+Caterpeeper: Hi, could you answer some questions for me?
 Rat: But of course! What would you like to know?
 - Where am I?
 	Rat: You're in the catacombs! This is the place where the most destitute are left to dwell.
